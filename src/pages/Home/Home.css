@@ -1,0 +1,35 @@
+.productName{
+  border-top: 1px solid #c700383b;
+}
+.productBox{
+  border: 1px solid #c700383b;
+}
+.imageOverlay{
+  opacity: 0;
+  transition: 1s ease opacity;
+}
+.productBox .image img{
+  transition: 1s;
+}
+.productBox:hover .image img{
+  transform: scale(6);
+}
+.productBox:hover .imageOverlay{
+  opacity: 1;
+}
+.product-icon button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 10px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease background-color;
+}
+.product-icon button:hover{
+  background: #c70039;
+}

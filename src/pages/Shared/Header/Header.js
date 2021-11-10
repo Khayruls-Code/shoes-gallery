@@ -12,13 +12,13 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item py-2 ml-4">
-              <NavLink to='home' className="nav-link font-medium" aria-current="page" href="/">Home</NavLink>
+              <NavLink to='home' className="nav-link font-medium" aria-current="page" >Home</NavLink>
             </li>
             <li className="nav-item py-2 ml-4">
-              <NavLink to='home' className="nav-link font-medium" aria-current="page" href="/">Explore More</NavLink>
+              <NavLink to='/explore' className="nav-link font-medium" aria-current="page">Explore More</NavLink>
             </li>
             <li className="nav-item py-2 ml-4">
-              <NavLink to='home' className="nav-link font-medium" aria-current="page" href="/">Contact</NavLink>
+              <NavLink to='/home' className="nav-link font-medium" aria-current="page">Contact</NavLink>
             </li>
             <li className="nav-item py-2 ml-4">
               <button className='px-4 rounded-md text-white font-semibold py-2 bg-primary_bg'>Login</button>

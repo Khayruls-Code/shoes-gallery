@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home/Home/Home';
 import Header from './pages/Shared/Header/Header';
+import Explore from './pages/Explore/Explore';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route path='/home'>
           <Home />
+        </Route>
+        <Route path='/explore'>
+          <Explore />
         </Route>
       </Switch>
     </Router>
