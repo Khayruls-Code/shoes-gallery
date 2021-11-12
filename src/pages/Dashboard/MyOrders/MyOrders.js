@@ -31,6 +31,10 @@ const MyOrders = () => {
     }
   }
 
+  if (!orders.length) {
+    return <h1 className='text-2xl font-semibold'>You haven't any order yet..</h1>
+  }
+
   return (
     <div>
       <div className="grid sm:grid-cols-2 gap-4">
