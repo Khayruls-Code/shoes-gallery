@@ -47,7 +47,7 @@ const Register = () => {
                   <input onBlur={getInputData} name='email' className='py-2.5 px-3 bg-seconDary_bg my-2 w-full  outline-none' type="email" placeholder='Email' />
                   <input onBlur={getInputData} name='password' className='py-2.5 px-3 bg-seconDary_bg my-2 w-full  outline-none' type="password" placeholder='Password' />
                   <input onBlur={getInputData} name='conpass' className='py-2.5 px-3 bg-seconDary_bg my-2 w-full  outline-none' type="password" placeholder='Confirm Password' />
-                  <input className='px-4 rounded-sm primaryBtn text-white font-semibold py-2 mt-2 bg-primary_bg' type="submit" value='Login' />
+                  <input className='px-4 rounded-sm primaryBtn text-white font-semibold py-2 mt-2 bg-primary_bg' type="submit" value='Register' />
                 </div>
               </form>
               <p className='mt-4'>Already have an account? <Link className='text-blue' to='/login'>Register</Link></p>

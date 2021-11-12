@@ -7,7 +7,7 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([])
   const { user } = useAuth()
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${user.email}`)
+    fetch(`https://powerful-hamlet-84922.herokuapp.com/orders?email=${user.email}`)
       .then(res => res.json())
       .then(data => setOrders(data))
   }, [user.email])
@@ -17,7 +17,7 @@ const MyOrders = () => {
   const handleDelete = (id) => {
     const makeSure = window.confirm('Are you sure to want to delete the product?')
     if (makeSure) {
-      fetch(`http://localhost:5000/orders/${id}`, {
+      fetch(`https://powerful-hamlet-84922.herokuapp.com/orders/${id}`, {
         method: "DELETE"
       })
         .then(res => res.json())
@@ -33,7 +33,7 @@ const MyOrders = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-4">
         {
           orders.map(order => <div
             key={order._id}

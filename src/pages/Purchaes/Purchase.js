@@ -16,7 +16,7 @@ const Purchase = () => {
     data.status = 'Pending'
     data.img = product?.img
     data.cost = product?.price
-    fetch('http://localhost:5000/orders', {
+    fetch('https://powerful-hamlet-84922.herokuapp.com/orders', {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -33,7 +33,7 @@ const Purchase = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${id}`)
+    fetch(`https://powerful-hamlet-84922.herokuapp.com/products/${id}`)
       .then(res => res.json())
       .then(data => setProduct(data))
   }, [id])

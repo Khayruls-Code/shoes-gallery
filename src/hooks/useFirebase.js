@@ -11,6 +11,7 @@ const useFirebase = () => {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [admin, setAdmin] = useState(null)
 
   ///create user
   const createUser = (email, password, name, location, history) => {
@@ -22,7 +23,7 @@ const useFirebase = () => {
         setSuccess(true)
         saveUserName(name)
         history.replace(location.state?.from || '/')
-        console.log(result.user)
+        addUser(name, email)
       })
       .catch(error => {
         setError(error.message)
@@ -43,6 +44,7 @@ const useFirebase = () => {
     const unSubscribe = onAuthStateChanged(auth, user => {
       if (user) {
         setUser(user)
+        checkAdmin(user.email)
       } else {
         setUser({})
       }
@@ -81,6 +83,29 @@ const useFirebase = () => {
       .finally(setIsLoading(false))
   }
 
+  //add user
+  const addUser = (name, email) => {
+    const userObj = { name, email }
+    fetch('https://powerful-hamlet-84922.herokuapp.com/users', {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(userObj)
+    })
+      .then(res => res.json())
+  }
+
+  //get admin
+  const checkAdmin = (email) => {
+    fetch(`https://powerful-hamlet-84922.herokuapp.com/users/${email}`)
+      .then(res => res.json())
+      .then(data => {
+        setAdmin(data.admin)
+      })
+  }
+  console.log(admin)
+
   return {
     user,
     error,
@@ -89,7 +114,8 @@ const useFirebase = () => {
     singInuser,
     isLoading,
     setError,
-    singOutuser
+    singOutuser,
+    admin
   }
 }
 

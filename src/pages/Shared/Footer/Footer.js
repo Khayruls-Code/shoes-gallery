@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
         </div>
         <hr />
-        <p className='flex uppercase items-center mt-5 justify-center text-primary_text'>&copy; Shoes Gallery 2021 with <BsSuitHeartFill style={{ color: "red" }} />By Khayrul</p>
+        <p className='sm:flex uppercase items-center mt-5 justify-center text-primary_text'>&copy; Shoes Gallery 2021 with <BsSuitHeartFill style={{ color: "red" }} />By Khayrul</p>
       </div>
     </div>
   );
