@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Home/Product/Product';
+import loader from '../../images/loader.gif'
 
 const Explore = () => {
   const [products, setProducts] = useState([])
@@ -8,6 +9,9 @@ const Explore = () => {
       .then(res => res.json())
       .then(data => setProducts(data))
   }, [])
+  if (!products.length) {
+    return <div className='h-screen flex items-center justify-center'><img src={loader} alt="" /></div>
+  }
   return (
     <div className='bg-seconDary_bg pb-16 pt-32'>
       <div className="small-container">

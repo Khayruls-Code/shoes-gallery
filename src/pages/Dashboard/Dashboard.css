@@ -1,0 +1,40 @@
+.left{
+  width: 30%;
+}
+.right{
+  width: 70%;
+}
+.sideMenu{
+  width: fit-content;
+  position: absolute;
+  top: 70px;
+  display: none;
+}
+.sideItem:hover{
+  background: #c2c1c1;
+}
+.orderBox{
+  background: #82ccdd4b;
+}
+.status{
+  background: #f8c291;
+  color: #e55039;
+}
+
+@media only screen and (max-width:900px) {
+  .left{
+    position: absolute;
+    width: 300px;
+  }
+  .hide{
+    left: -100%;
+    transition: 1s;
+  }
+  .right{
+    width: 100%;
+  }
+  .sideMenu{
+    display: block;
+  }
+  
+}

@@ -1,9 +1,10 @@
 import React from 'react';
 import { IoIosArrowForward } from 'react-icons/io'
 import { BsSuitHeart } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 
 const Product = (props) => {
-  const { product: { name, img, desc, price } } = props
+  const { product: { name, img, desc, price, _id } } = props
   return (
     <div className='bg-white productBox'>
       <div className='w-full p-3'>
@@ -13,7 +14,9 @@ const Product = (props) => {
             <p>{desc.slice(0, 100)}</p>
             <div className='flex product-icon'>
               <button className=''><BsSuitHeart /></button>
-              <button className=''><IoIosArrowForward /></button>
+              <Link to={`products/${_id}`}>
+                <button className=''><IoIosArrowForward /></button>
+              </Link>
             </div>
           </div>
         </div>
