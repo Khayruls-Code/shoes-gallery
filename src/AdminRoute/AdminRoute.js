@@ -8,6 +8,9 @@ const AdminRoute = ({ children, ...rest }) => {
   if (isLoading) {
     return <div className='h-screen flex items-center justify-center'><img src={loader} alt="" /></div>
   }
+  if (!admin) {
+    return <div className='h-screen flex items-center justify-center'><img src={loader} alt="" /></div>
+  }
   return (
     <Route
       {...rest}
