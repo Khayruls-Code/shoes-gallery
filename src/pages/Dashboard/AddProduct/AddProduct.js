@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import FileBase64 from 'react-file-base64';
 import { useForm } from 'react-hook-form';
+import { useAlert } from "react-alert";
 
 const AddProduct = () => {
   const { register, handleSubmit, reset } = useForm();
   const [img, setImg] = useState('')
+  const alert = useAlert();
 
   const onSubmit = data => {
     data.img = img
@@ -18,7 +20,7 @@ const AddProduct = () => {
       .then(res => res.json())
       .then(data => {
         if (data.acknowledged === true) {
-          alert('Successfully added This Product')
+          alert.success("Successfully added This Product");
         }
       })
     reset()

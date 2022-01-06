@@ -2,11 +2,13 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
 import FileBase64 from 'react-file-base64';
 import { useState } from 'react';
+import { useAlert } from "react-alert";
 
 const ReviewForm = () => {
   const { user } = useAuth()
   const { register, handleSubmit, reset } = useForm();
   const [img, setImg] = useState('')
+  const alert = useAlert();
 
   const onSubmit = data => {
     data.img = img
@@ -20,7 +22,7 @@ const ReviewForm = () => {
       .then(res => res.json())
       .then(data => {
         if (data.acknowledged === true) {
-          alert('Successfully added review')
+          alert.success("Successfully added review");
         }
       })
     reset()

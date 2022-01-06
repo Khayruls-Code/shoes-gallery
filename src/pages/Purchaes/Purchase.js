@@ -4,11 +4,13 @@ import Rating from 'react-rating';
 import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
+import { useAlert } from "react-alert";
 
 const Purchase = () => {
   const { id } = useParams()
   const [product, setProduct] = useState([])
   const { user } = useAuth()
+  const alert = useAlert();
 
   //react hooks form
   const { register, handleSubmit, reset } = useForm();
@@ -26,7 +28,7 @@ const Purchase = () => {
       .then(res => res.json())
       .then(data => {
         if (data.acknowledged === true) {
-          alert('Your Order successfully submited')
+          alert.success("Your Order successfully submited");
         }
       })
     reset()

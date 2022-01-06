@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
+import { useAlert } from "react-alert";
 
 const ManageProduct = () => {
   const [products, setProducts] = useState([])
+  const alert = useAlert();
 
   useEffect(() => {
     fetch('https://powerful-hamlet-84922.herokuapp.com/products')
@@ -21,6 +23,7 @@ const ManageProduct = () => {
           if (data.acknowledged === true) {
             const remaining = products.filter(product => product._id !== id)
             setProducts(remaining)
+            alert.success("Item Deleted Successfully");
           }
         })
     }

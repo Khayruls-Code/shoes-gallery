@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa'
+import { useAlert } from "react-alert";
 
 const AllOrders = () => {
   const [orders, setOrders] = useState()
+  const alert = useAlert();
 
   useEffect(() => {
     fetch('https://powerful-hamlet-84922.herokuapp.com/orders')
       .then(res => res.json())
       .then(data => setOrders(data))
   }, [])
+
 
   const handleStatus = (e, id) => {
     const statusObj = { status: e.target.value }
@@ -26,19 +29,20 @@ const AllOrders = () => {
   }
 
   const handleDelete = (id) => {
-    const makeSure = window.confirm('Are you sure to want to delete this order?')
-    if (makeSure) {
-      fetch(`https://powerful-hamlet-84922.herokuapp.com/orders/${id}`, {
-        method: "DELETE"
+    // const makeSure = window.confirm('Are you sure to want to delete this order?')
+    // if (makeSure) {
+    fetch(`https://powerful-hamlet-84922.herokuapp.com/orders/${id}`, {
+      method: "DELETE"
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.acknowledged === true) {
+          const remaining = orders.filter(order => order._id !== id)
+          setOrders(remaining)
+          alert.success("Item Deleted Successfully");
+        }
       })
-        .then(res => res.json())
-        .then(data => {
-          if (data.acknowledged === true) {
-            const remaining = orders.filter(order => order._id !== id)
-            setOrders(remaining)
-          }
-        })
-    }
+    // }
   }
 
   return (

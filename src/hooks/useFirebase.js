@@ -12,7 +12,6 @@ const useFirebase = () => {
   const [success, setSuccess] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [admin, setAdmin] = useState(null)
-
   ///create user
   const createUser = (email, password, name, location, history) => {
     setIsLoading(true)
@@ -104,7 +103,6 @@ const useFirebase = () => {
         setAdmin(data.admin)
       })
   }
-  console.log(admin)
 
   return {
     user,

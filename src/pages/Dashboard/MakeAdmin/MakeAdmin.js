@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useAlert } from "react-alert";
 
 const MakeAdmin = () => {
 
   const [email, setEmail] = useState('')
+  const alert = useAlert();
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -18,9 +20,9 @@ const MakeAdmin = () => {
       .then(data => {
         console.log(data)
         if (data.modifiedCount === 1) {
-          alert('Successfully added admin')
+          alert.success("Successfully added admin");
         } else {
-          alert('Invailed Email')
+          alert.error("Invailed Email");
         }
       })
     e.target.reset()

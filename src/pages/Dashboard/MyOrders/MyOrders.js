@@ -2,10 +2,12 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
+import { useAlert } from "react-alert";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([])
   const { user } = useAuth()
+  const alert = useAlert();
   useEffect(() => {
     fetch(`https://powerful-hamlet-84922.herokuapp.com/orders?email=${user.email}`)
       .then(res => res.json())
@@ -25,7 +27,7 @@ const MyOrders = () => {
           if (data.acknowledged === true) {
             const remaining = orders.filter(order => order._id !== id)
             setOrders(remaining)
-            alert('Item Deleted Successfully')
+            alert.success("Item Deleted Successfully");
           }
         })
     }
