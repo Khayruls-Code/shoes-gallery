@@ -15,7 +15,7 @@ const CheckoutForm = ({ price, productQuantity }) => {
   const [success, setSuccess] = useState(false)
   const { user } = useAuth()
   useEffect(() => {
-    fetch('http://localhost:5000/create-payment-intent', {
+    fetch('https://powerful-hamlet-84922.herokuapp.com/create-payment-intent', {
       method: "POST",
       headers: {
         "content-type": "application/json"
