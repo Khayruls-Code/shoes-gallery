@@ -42,10 +42,10 @@ const Dashboard = () => {
               {
                 !admin ? <div>
                   <li className='text-lg font-medium px-3 py-2.5 sideItem'>
-                    <NavLink onClick={handleHide} activeStyle={activeStyle} to={`${url}/payment`} className='text-primary_text w-full h-full block'>Payment</NavLink>
+                    <NavLink onClick={handleHide} activeStyle={activeStyle} to={url} className='text-primary_text w-full h-full block'>My Orders</NavLink>
                   </li>
                   <li className='text-lg font-medium px-3 py-2.5 sideItem'>
-                    <NavLink onClick={handleHide} activeStyle={activeStyle} to={url} className='text-primary_text w-full h-full block'>My Orders</NavLink>
+                    <NavLink onClick={handleHide} activeStyle={activeStyle} to={`${url}/payment`} className='text-primary_text w-full h-full block'>Payment</NavLink>
                   </li>
                   <li className='text-lg font-medium px-3 py-2.5 sideItem'>
                     <NavLink onClick={handleHide} activeStyle={activeStyle} to={`${url}/review`} className='text-primary_text w-full h-full block'>Review</NavLink>

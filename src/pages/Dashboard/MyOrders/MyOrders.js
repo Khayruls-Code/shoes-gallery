@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import { useAlert } from "react-alert";
+import { Link } from 'react-router-dom'
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([])
@@ -36,6 +37,7 @@ const MyOrders = () => {
   if (!orders.length) {
     return <h1 className='text-2xl font-semibold'>You haven't any order yet..</h1>
   }
+  const price = orders.reduce((sum, singlePrice) => sum + singlePrice.cost, 0)
 
   return (
     <div>
@@ -60,6 +62,7 @@ const MyOrders = () => {
           </div>)
         }
       </div>
+      <Link className='py-2 bg-blue block ml-auto w-1/5 text-center font-medium text-white my-4 rounded-sm' to='/dashboard/payment'><button>Pay${price}</button></Link>
     </div>
   );
 };
